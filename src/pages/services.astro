@@ -1,7 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Img from "../components/Img.astro";
+import { Image } from "astro:assets";
 import { site } from "../data/site";
+import residentialImg from "../assets/images/residential-garage.png";
+import commercialImg from "../assets/images/commercial-epoxy.png";
+import patioImg from "../assets/images/patio-coating.png";
+import concreteImg from "../assets/images/concrete-repair.png";
 
 const title =
   "Our Services: Garage, Commercial, Patio & Concrete Coatings | Salt Lake Garage Coatings";
@@ -12,7 +16,7 @@ const services = [
   {
     id: "residential-garage-coatings",
     name: "Residential Garage Coatings",
-    img: "/images/residential-garage.png",
+    img: residentialImg,
     lead: "The signature flake-epoxy and polyaspartic floors that make your garage the cleanest room in the house.",
     points: [
       "Full-flake epoxy and polyaspartic hybrid systems in a range of warm, natural color blends.",
@@ -24,7 +28,7 @@ const services = [
   {
     id: "commercial-epoxy-flooring",
     name: "Commercial Epoxy Flooring",
-    img: "/images/commercial-epoxy.png",
+    img: commercialImg,
     lead: "Heavy-duty floor systems for showrooms, shops, warehouses, and retail spaces around Salt Lake City.",
     points: [
       "High-build epoxy and urethane topcoats engineered for forklift and foot traffic.",
@@ -36,7 +40,7 @@ const services = [
   {
     id: "patio-walkway-coatings",
     name: "Patio & Walkway Coatings",
-    img: "/images/patio-coating.png",
+    img: patioImg,
     lead: "Decorative, slip-resistant coatings that bring warmth and durability to outdoor concrete.",
     points: [
       "UV-stable polyaspartic and decorative concrete systems that won&apos;t yellow in the sun.",
@@ -48,7 +52,7 @@ const services = [
   {
     id: "concrete-repair-preparation",
     name: "Concrete Repair & Preparation",
-    img: "/images/concrete-repair.png",
+    img: concreteImg,
     lead: "The foundation of every lasting coating: proper repair and mechanical surface prep.",
     points: [
       "Diamond grinding and shot-blasting to achieve the correct concrete profile.",
@@ -97,11 +101,13 @@ const services = [
             ))}
           </ul>
         </div>
-        <Img
+        <Image
           src={s.img}
           alt={`${s.name} by Salt Lake Garage Coatings`}
-          width={1200}
-          height={800}
+          widths={[480, 768, 1000]}
+          sizes="(max-width: 1024px) 100vw, 560px"
+          loading="lazy"
+          format="webp"
           class="w-full rounded-3xl object-cover shadow-soft"
         />
       </div>

@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Img from "../components/Img.astro";
+import { Image } from "astro:assets";
+import aboutImage from "../assets/images/about-craft.png";
 import { site } from "../data/site";
 
 const title = "About Us | Salt Lake Garage Coatings";
@@ -29,11 +30,12 @@ const values = [
           treating every garage like it&apos;s our own.
         </p>
       </div>
-      <Img
-        src="/images/about-craft.png"
+      <Image
+        src={aboutImage}
         alt="A local installer applying a premium polyaspartic floor coating"
-        width={1200}
-        height={900}
+        widths={[480, 768, 1000]}
+        sizes="(max-width: 1024px) 100vw, 560px"
+        format="webp"
         class="w-full rounded-3xl object-cover shadow-soft"
       />
     </div>
