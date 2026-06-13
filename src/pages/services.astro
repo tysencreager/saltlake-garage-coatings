@@ -6,7 +6,7 @@ import { site } from "../data/site";
 const title =
   "Our Services: Garage, Commercial, Patio & Concrete Coatings | Salt Lake Garage Coatings";
 const description =
-  "Residential garage coatings, commercial epoxy flooring, patio & walkway coatings, and concrete repair across Salt Lake City, UT. Free estimates — (801) 555-0142.";
+  "Residential garage coatings, commercial epoxy flooring, patio & walkway coatings, and concrete repair across Salt Lake City, UT. Free estimates. Call (801) 555-0142.";
 
 const services = [
   {
@@ -49,7 +49,7 @@ const services = [
     id: "concrete-repair-preparation",
     name: "Concrete Repair & Preparation",
     img: "/images/concrete-repair.svg",
-    lead: "The foundation of every lasting coating — proper repair and mechanical surface prep.",
+    lead: "The foundation of every lasting coating: proper repair and mechanical surface prep.",
     points: [
       "Diamond grinding and shot-blasting to achieve the correct concrete profile.",
       "Structural repair of cracks, spalling, pitting, and surface damage.",
@@ -63,7 +63,7 @@ const services = [
 <Layout title={title} description={description} path="/services">
   <!-- PAGE HEADER -->
   <section class="border-b border-cream-200 bg-cream-100">
-    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 animate-fade-up">
       <p class="text-xs font-semibold uppercase tracking-[0.16em] text-sage-600">Our Services</p>
       <h1 class="mt-3 max-w-3xl text-4xl leading-tight sm:text-5xl">
         Premium Floor Coating Services in Salt Lake City
@@ -71,7 +71,7 @@ const services = [
       <p class="mt-5 max-w-2xl text-lg leading-relaxed text-stone-soft">
         From a single-car garage to a commercial showroom floor, we install
         durable, beautiful coating systems built for Utah&apos;s climate. Every
-        project starts with proper preparation and ends with a written warranty.
+        project starts with proper preparation and premium materials.
       </p>
       <a href={site.phoneHref} class="mt-7 inline-flex items-center gap-2 rounded-full bg-sage-500 px-6 py-3.5 text-base font-semibold text-cream-50 shadow-soft transition-colors hover:bg-sage-600">
         Call for a Free Estimate: {site.phoneDisplay}
@@ -82,7 +82,7 @@ const services = [
   <!-- SERVICE DETAIL BLOCKS -->
   {services.map((s, i) => (
     <section id={s.id} class="scroll-mt-24 border-b border-cream-200">
-      <div class={`mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
+      <div data-reveal class={`mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
         <div>
           <h2 class="text-3xl">{s.name}</h2>
           <p class="mt-4 text-lg leading-relaxed text-stone-soft" set:html={s.lead} />
@@ -113,7 +113,7 @@ const services = [
     <div class="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-14 sm:px-6 md:flex-row md:items-center md:justify-between">
       <div>
         <h2 class="text-3xl text-cream-50">Not sure which system fits your floor?</h2>
-        <p class="mt-2 text-cream-200/80">We&apos;ll walk your space and recommend the right coating — free of charge.</p>
+        <p class="mt-2 text-cream-200/80">We&apos;ll walk your space and recommend the right coating, free of charge.</p>
       </div>
       <a href={site.phoneHref} class="inline-flex shrink-0 items-center gap-2 rounded-full bg-sage-400 px-7 py-4 text-base font-semibold text-stone-ink transition-colors hover:bg-sage-300">
         Call {site.phoneDisplay}

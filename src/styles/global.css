@@ -1,33 +1,36 @@
 @import "tailwindcss";
 
 /*
-  Organic Minimalism / Warm Earthy Luxury palette.
-  Creams + warm tans + muted sage greens. No harsh primaries.
+  Organic Minimalism palette: clean whites, off-whites, and light greys with
+  muted sage green as the single accent. (Token names like "cream"/"sand" are
+  retained for stability but now map to neutral white/grey values.)
 */
 @theme {
-  --color-cream-50: #faf7f1;
-  --color-cream-100: #f4eee3;
-  --color-cream-200: #ece2d1;
+  --color-cream-50: #fafafa; /* page background, cards, header */
+  --color-cream-100: #f1f2f2; /* light-grey alternating sections / panels */
+  --color-cream-200: #e4e5e5; /* hairline borders */
 
-  --color-sand-300: #ddc9a9;
-  --color-sand-400: #cbb088;
-  --color-sand-500: #b6936a;
-  --color-sand-600: #98774f;
+  /* Neutral greys (formerly tan accents). */
+  --color-sand-300: #d7d8d8;
+  --color-sand-400: #b6b8b8;
+  --color-sand-500: #8b8e8e;
+  --color-sand-600: #686b6b;
 
+  /* Sage greens, unchanged. */
   --color-sage-300: #aab79a;
   --color-sage-400: #8a9a78;
   --color-sage-500: #6f7f5d;
   --color-sage-600: #586748;
 
-  --color-stone-ink: #2f2a23;
-  --color-stone-soft: #5c5448;
+  --color-stone-ink: #232524; /* near-black text + dark sections */
+  --color-stone-soft: #565a58; /* secondary text */
 
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
 
-  --shadow-soft: 0 1px 2px rgba(47, 42, 35, 0.04),
-    0 8px 24px rgba(47, 42, 35, 0.06);
+  --shadow-soft: 0 1px 2px rgba(35, 37, 36, 0.04),
+    0 10px 30px rgba(35, 37, 36, 0.08);
 }
 
 html {
@@ -53,7 +56,73 @@ h4 {
   color: var(--color-stone-ink);
 }
 
-/* Respect reduced-motion preferences for the few transitions we use. */
+/* ---------- Motion ---------- */
+/* All motion is gated behind a no-preference query, and the scroll-reveal
+   hidden state only applies when JS is active (`.js`). That means crawlers and
+   reduced-motion / no-JS visitors always see fully visible content. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Scroll reveal, single element. */
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Scroll reveal, staggered children of a grid/list. */
+  .js [data-reveal-stagger] > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js [data-reveal-stagger].is-visible > * {
+    opacity: 1;
+    transform: none;
+  }
+  .js [data-reveal-stagger].is-visible > *:nth-child(2) {
+    transition-delay: 0.08s;
+  }
+  .js [data-reveal-stagger].is-visible > *:nth-child(3) {
+    transition-delay: 0.16s;
+  }
+  .js [data-reveal-stagger].is-visible > *:nth-child(4) {
+    transition-delay: 0.24s;
+  }
+  .js [data-reveal-stagger].is-visible > *:nth-child(5) {
+    transition-delay: 0.32s;
+  }
+}
+
+/* Gentle lift on interactive cards (respects reduced-motion via transition). */
+.hover-lift {
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

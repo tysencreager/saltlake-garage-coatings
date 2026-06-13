@@ -10,13 +10,13 @@ const description =
 
 <Layout title={title} description={description} path="/contact">
   <section class="border-b border-cream-200 bg-cream-100">
-    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 animate-fade-up">
       <p class="text-xs font-semibold uppercase tracking-[0.16em] text-sage-600">Contact</p>
       <h1 class="mt-3 max-w-3xl text-4xl leading-tight sm:text-5xl">
         Get Your Free Floor Coating Quote
       </h1>
       <p class="mt-5 max-w-2xl text-lg leading-relaxed text-stone-soft">
-        Tell us about your project and we&apos;ll get back to you the same day —
+        Tell us about your project and we&apos;ll get back to you the same day,
         or call now to talk through your floor with a real person.
       </p>
     </div>
@@ -25,7 +25,7 @@ const description =
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
     <div class="grid gap-12 lg:grid-cols-2">
       <!-- Contact details -->
-      <div>
+      <div data-reveal>
         <h2 class="text-2xl">Talk to Salt Lake Garage Coatings</h2>
 
         <dl class="mt-6 space-y-6">
@@ -61,7 +61,7 @@ const description =
               <dt class="text-sm font-semibold uppercase tracking-wide text-stone-soft">Service Area</dt>
               <dd class="mt-1 text-base leading-relaxed text-stone-soft">
                 Proudly serving <strong class="text-stone-ink">{site.city}, {site.regionName}</strong> and the
-                surrounding valley — including {site.serviceAreas.join(", ")},
+                surrounding valley, including {site.serviceAreas.join(", ")},
                 and nearby communities.
               </dd>
             </div>
@@ -88,7 +88,7 @@ const description =
       </div>
 
       <!-- Form -->
-      <div class="rounded-3xl border border-cream-200 bg-cream-50 p-6 shadow-soft sm:p-8">
+      <div class="rounded-3xl border border-cream-200 bg-cream-50 p-6 shadow-soft sm:p-8" data-reveal>
         <h2 class="text-2xl">Request a Free Estimate</h2>
         <p class="mt-1.5 text-sm text-stone-soft">Fields marked are required. We&apos;ll never share your information.</p>
         <div class="mt-6">

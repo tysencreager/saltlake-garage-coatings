@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 /**
- * Lead-capture form. This is the single React island on the site — it is the
+ * Lead-capture form. This is the single React island on the site; it is the
  * only element that genuinely needs client-side interactivity (validation +
  * success state). Everything else is static HTML for speed.
  *
@@ -38,7 +38,7 @@ export default function LeadForm({ phoneDisplay, phoneHref, compact = false }) {
     if (Object.keys(nextErrors).length > 0) return;
 
     setStatus("submitting");
-    // No backend wired yet — resolve locally so the confirmation always shows.
+    // No backend wired yet, so resolve locally and the confirmation shows.
     // Replace this block with a fetch() to your form endpoint at launch.
     await new Promise((r) => setTimeout(r, 600));
     setStatus("success");

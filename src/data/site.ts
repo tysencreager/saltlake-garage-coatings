@@ -7,7 +7,7 @@ export const site = {
   tagline: "Premium Epoxy & Polyaspartic Floor Coatings",
   url: "https://saltlakegaragecoatings.com",
 
-  // Placeholder phone — swap for the tracked rental number at launch.
+  // Placeholder phone. Swap for the tracked rental number at launch.
   phoneDisplay: "(801) 555-0142",
   phoneHref: "tel:+18015550142",
   emailDisplay: "hello@saltlakegaragecoatings.com",
