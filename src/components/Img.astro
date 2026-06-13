@@ -1,0 +1,27 @@
+---
+// Thin wrapper that enforces the performance defaults we want everywhere:
+// explicit width/height (no layout shift) + lazy loading by default. Pass
+// `priority` for the LCP hero image so it loads eagerly instead.
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  class?: string;
+  priority?: boolean;
+}
+
+const { src, alt, width, height, class: className = "", priority = false } =
+  Astro.props;
+---
+
+<img
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  loading={priority ? "eager" : "lazy"}
+  decoding={priority ? "auto" : "async"}
+  fetchpriority={priority ? "high" : "auto"}
+  class={className}
+/>

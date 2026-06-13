@@ -1,0 +1,100 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LeadForm from "../components/LeadForm.jsx";
+import { site } from "../data/site";
+
+const title = "Contact Us | Free Garage Floor Quote in Salt Lake City";
+const description =
+  "Contact Salt Lake Garage Coatings for a free estimate on epoxy & polyaspartic floor coatings. Serving Salt Lake City, Taylorsville, Sandy & Draper. (801) 555-0142.";
+---
+
+<Layout title={title} description={description} path="/contact">
+  <section class="border-b border-cream-200 bg-cream-100">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <p class="text-xs font-semibold uppercase tracking-[0.16em] text-sage-600">Contact</p>
+      <h1 class="mt-3 max-w-3xl text-4xl leading-tight sm:text-5xl">
+        Get Your Free Floor Coating Quote
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-stone-soft">
+        Tell us about your project and we&apos;ll get back to you the same day —
+        or call now to talk through your floor with a real person.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="grid gap-12 lg:grid-cols-2">
+      <!-- Contact details -->
+      <div>
+        <h2 class="text-2xl">Talk to Salt Lake Garage Coatings</h2>
+
+        <dl class="mt-6 space-y-6">
+          <div class="flex items-start gap-4">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sage-500 text-cream-50">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2Z"/></svg>
+            </span>
+            <div>
+              <dt class="text-sm font-semibold uppercase tracking-wide text-stone-soft">Phone</dt>
+              <dd class="mt-0.5">
+                <a href={site.phoneHref} class="text-xl font-semibold text-stone-ink hover:text-sage-600">{site.phoneDisplay}</a>
+              </dd>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sage-500 text-cream-50">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm8 7L4.5 6.5v.7L12 12l7.5-4.8v-.7L12 11Z"/></svg>
+            </span>
+            <div>
+              <dt class="text-sm font-semibold uppercase tracking-wide text-stone-soft">Email</dt>
+              <dd class="mt-0.5">
+                <a href={site.emailHref} class="text-base font-medium text-stone-ink hover:text-sage-600">{site.emailDisplay}</a>
+              </dd>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sage-500 text-cream-50">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+            </span>
+            <div>
+              <dt class="text-sm font-semibold uppercase tracking-wide text-stone-soft">Service Area</dt>
+              <dd class="mt-1 text-base leading-relaxed text-stone-soft">
+                Proudly serving <strong class="text-stone-ink">{site.city}, {site.regionName}</strong> and the
+                surrounding valley — including {site.serviceAreas.join(", ")},
+                and nearby communities.
+              </dd>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sage-500 text-cream-50">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 10V6h-2v7h6v-2h-4Z"/></svg>
+            </span>
+            <div>
+              <dt class="text-sm font-semibold uppercase tracking-wide text-stone-soft">Hours</dt>
+              <dd class="mt-0.5 text-base text-stone-soft">{site.hours}</dd>
+            </div>
+          </div>
+        </dl>
+
+        <div class="mt-8 rounded-2xl border border-cream-200 bg-cream-100 p-6">
+          <p class="text-sm leading-relaxed text-stone-soft">
+            <strong class="text-stone-ink">Free in-home estimates.</strong> We&apos;ll
+            measure your space, assess the concrete, and give you a clear written
+            quote with no obligation.
+          </p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="rounded-3xl border border-cream-200 bg-cream-50 p-6 shadow-soft sm:p-8">
+        <h2 class="text-2xl">Request a Free Estimate</h2>
+        <p class="mt-1.5 text-sm text-stone-soft">Fields marked are required. We&apos;ll never share your information.</p>
+        <div class="mt-6">
+          <LeadForm client:visible phoneDisplay={site.phoneDisplay} phoneHref={site.phoneHref} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

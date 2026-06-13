@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Local installer applying a premium floor coating">
+  <!-- IMAGE PROMPT: A skilled local installer rolling a polyaspartic topcoat on
+       a garage floor, warm soft light, focused craftsmanship, premium feel. -->
+  <defs>
+    <linearGradient id="a-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4eee3"/><stop offset="1" stop-color="#ddc9a9"/></linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#a-bg)"/>
+  <polygon points="0,560 1200,500 1200,900 0,900" fill="#cbb088"/>
+  <rect x="470" y="250" width="120" height="320" rx="20" fill="#6f7f5d" opacity="0.55"/>
+  <circle cx="530" cy="220" r="55" fill="#8a9a78" opacity="0.6"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Commercial epoxy flooring in a showroom">
+  <!-- IMAGE PROMPT: Expansive commercial showroom with seamless high-gloss epoxy
+       floor in warm neutral tones, clean lines, soft overhead lighting. -->
+  <defs>
+    <linearGradient id="c-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ece2d1"/><stop offset="1" stop-color="#cbb088"/></linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#c-bg)"/>
+  <polygon points="0,460 1200,400 1200,800 0,800" fill="#b6936a" opacity="0.85"/>
+  <g stroke="#faf7f1" stroke-width="3" opacity="0.4">
+    <line x1="100" y1="800" x2="380" y2="470"/><line x1="500" y1="800" x2="560" y2="470"/>
+    <line x1="900" y1="800" x2="740" y2="470"/><line x1="1180" y1="760" x2="920" y2="470"/>
+  </g>
+</svg>

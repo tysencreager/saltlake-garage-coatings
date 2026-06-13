@@ -1,0 +1,285 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Img from "../components/Img.astro";
+import LeadForm from "../components/LeadForm.jsx";
+import { site } from "../data/site";
+
+const title =
+  "Premium Epoxy Garage Floor Coatings in Salt Lake City, UT | Salt Lake Garage Coatings";
+const description =
+  "Premium epoxy & polyaspartic garage floor coatings in Salt Lake City. Durable, slip-resistant finishes installed in a day. Free estimates — call (801) 555-0142.";
+
+const whyChooseUs = [
+  {
+    title: "One-Day Polyaspartic Installs",
+    body: "Our polyaspartic systems cure fast, so most residential garages are ground, coated, and ready to walk on the same day — back to parking in 24 hours.",
+  },
+  {
+    title: "Built for Utah Winters",
+    body: "Salt, snowmelt, and road brine destroy bare concrete. Our coatings are chemical- and hot-tire resistant, sealing the slab against everything a Wasatch winter brings.",
+  },
+  {
+    title: "Diamond-Ground Preparation",
+    body: "We mechanically grind every slab to a proper profile — never a quick acid wash. That preparation is the single biggest reason a coating lasts decades instead of peeling.",
+  },
+  {
+    title: "Licensed, Insured & Warrantied",
+    body: "Every install is backed by a written warranty and full liability coverage. Local crews, clean job sites, and a finish we stand behind.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Our garage went from a stained, cracked mess to the cleanest room in the house. The flake floor looks incredible and they finished in a single day.",
+    name: "Megan R.",
+    location: "Sandy, UT",
+  },
+  {
+    quote:
+      "Professional from the quote to the final walkthrough. The polyaspartic coating handles our trucks and the Utah salt without a single chip so far.",
+    name: "David K.",
+    location: "Draper, UT",
+  },
+  {
+    quote:
+      "They repaired some bad spalling, then coated the whole floor. You'd never know there was damage. Worth every penny for the premium look.",
+    name: "Allison T.",
+    location: "Salt Lake City, UT",
+  },
+];
+
+const steps = [
+  { n: "01", t: "Free Estimate", d: "We assess your concrete, talk colors, and give a clear written quote — no pressure." },
+  { n: "02", t: "Diamond Grinding", d: "We profile the slab and repair cracks, pits, and spalling for a flawless bond." },
+  { n: "03", t: "Coat & Flake", d: "Base coat, decorative flake broadcast, and a tough polyaspartic topcoat." },
+  { n: "04", t: "Same-Day Return", d: "Walk on it that evening, park on it the next day. Done right, done fast." },
+];
+---
+
+<Layout title={title} description={description} path="/">
+  <!-- HERO -->
+  <section class="relative overflow-hidden border-b border-cream-200">
+    <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:py-20">
+      <div>
+        <p class="inline-flex items-center gap-2 rounded-full bg-sage-300/30 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-sage-600">
+          Salt Lake City · Taylorsville · Sandy · Draper
+        </p>
+        <h1 class="mt-5 text-4xl leading-[1.08] sm:text-5xl lg:text-[3.4rem]">
+          Premium Epoxy Garage Floor Coatings in Salt Lake City
+        </h1>
+        <p class="mt-5 max-w-xl text-lg leading-relaxed text-stone-soft">
+          Transform your garage with a durable, showroom-quality epoxy or
+          polyaspartic floor — professionally installed in as little as one day.
+          Slip-resistant, chemical-proof, and built for Utah winters.
+        </p>
+
+        <div class="mt-7 flex flex-wrap items-center gap-3">
+          <a
+            href={site.phoneHref}
+            class="inline-flex items-center gap-2 rounded-full bg-sage-500 px-6 py-3.5 text-base font-semibold text-cream-50 shadow-soft transition-colors hover:bg-sage-600"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+              <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2Z"></path>
+            </svg>
+            Call {site.phoneDisplay}
+          </a>
+          <a href="#quote" class="inline-flex items-center gap-2 rounded-full border border-sand-400 px-6 py-3.5 text-base font-semibold text-stone-ink transition-colors hover:bg-cream-100">
+            Get a Free Quote
+          </a>
+        </div>
+
+        <ul class="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-stone-soft">
+          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sage-400"></span> 15-year coating warranty</li>
+          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sage-400"></span> Licensed &amp; insured</li>
+          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sage-400"></span> 4.9★ local rating</li>
+        </ul>
+      </div>
+
+      <!-- Above-the-fold lead capture -->
+      <div id="quote" class="rounded-3xl border border-cream-200 bg-cream-100/60 p-6 shadow-soft sm:p-8">
+        <h2 class="text-2xl">Get Your Free Floor Quote</h2>
+        <p class="mt-1.5 text-sm text-stone-soft">
+          Tell us about your space and we&apos;ll call you back the same day.
+        </p>
+        <div class="mt-5">
+          <LeadForm client:load phoneDisplay={site.phoneDisplay} phoneHref={site.phoneHref} compact={true} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO IMAGE BAND -->
+  <section class="bg-cream-100">
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+      <Img
+        src="/images/hero-garage.svg"
+        alt="Finished flake-epoxy garage floor in soft natural light, Salt Lake City"
+        width={1600}
+        height={1100}
+        priority={true}
+        class="w-full rounded-3xl object-cover shadow-soft"
+      />
+    </div>
+  </section>
+
+  <!-- INTRO CONTENT -->
+  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <h2 class="text-3xl">Salt Lake City&apos;s Garage Floor Coating Specialists</h2>
+    <div class="mt-5 space-y-5 text-base leading-relaxed text-stone-soft">
+      <p>
+        A bare concrete garage floor is one of the hardest-working surfaces in
+        your home — and one of the most neglected. In Salt Lake City, that slab
+        takes a relentless beating: freeze-thaw cycles crack the surface, road
+        salt and snowmelt eat into the concrete, and hot tires lift cheap
+        sealers right off the floor. At {site.name}, we install <strong>premium
+        epoxy and polyaspartic floor coatings</strong> engineered to handle all
+        of it, turning a dusty, stained slab into a clean, glossy, easy-to-wipe
+        surface that lasts for decades.
+      </p>
+      <p>
+        Unlike the thin DIY kits sold at big-box stores, our professional-grade
+        systems start with <strong>diamond grinding</strong> — the gold standard
+        of surface preparation. We mechanically open the concrete&apos;s pores so
+        the coating bonds into the slab rather than sitting on top of it. Cracks,
+        pits, and spalled areas are repaired with structural patching compounds
+        before a single drop of coating goes down. This is the difference between
+        a floor that peels in two winters and one that still looks new in fifteen
+        years.
+      </p>
+    </div>
+
+    <h3 class="mt-12 text-2xl">Epoxy vs. Polyaspartic: Which Is Right for You?</h3>
+    <div class="mt-5 space-y-5 text-base leading-relaxed text-stone-soft">
+      <p>
+        <strong>Epoxy coatings</strong> have been the trusted choice for garage
+        floors for decades. They create a thick, hard, durable film with a deep,
+        glossy finish and outstanding resistance to oil, grease, and chemicals.
+        Paired with a decorative flake broadcast, an epoxy floor hides
+        imperfections, adds slip resistance, and delivers that signature
+        showroom look at a very approachable price point.
+      </p>
+      <p>
+        <strong>Polyaspartic coatings</strong> are the modern premium upgrade.
+        They cure in hours instead of days, which means we can grind, coat, and
+        hand back most residential garages in a single day. Polyaspartics are
+        also UV-stable (they won&apos;t yellow in sunlight), more flexible in
+        temperature swings, and even more abrasion-resistant than standard
+        epoxy. For most Salt Lake homeowners we recommend a hybrid system: an
+        epoxy base coat for build and adhesion, topped with a polyaspartic clear
+        coat for speed, durability, and color stability. You get the best of both
+        worlds.
+      </p>
+    </div>
+
+    <h3 class="mt-12 text-2xl">Concrete Repair &amp; Surface Preparation</h3>
+    <div class="mt-5 space-y-5 text-base leading-relaxed text-stone-soft">
+      <p>
+        No coating can outperform the concrete beneath it, which is why
+        preparation is where we spend the most care. Salt Lake&apos;s climate is
+        especially tough on slabs — water seeps into hairline cracks, freezes,
+        expands, and breaks the surface apart. Before coating, we repair spalling
+        and pitting, fill and reinforce cracks, and grind the entire floor to a
+        uniform profile. Where moisture is a concern, we can apply a vapor
+        barrier primer to prevent delamination down the road. The result is a
+        seamless, fully bonded foundation ready for a finish that will hold.
+      </p>
+      <p>
+        Beyond garages, the same systems protect <strong>patios, walkways,
+        basements, and commercial floors</strong>. A decorative concrete coating
+        on a back patio adds slip resistance and a warm, finished look, while
+        commercial epoxy stands up to forklifts, foot traffic, and constant
+        cleaning. Whatever the surface, the recipe is the same: prepare it
+        properly, coat it with premium materials, and back it with a real
+        warranty.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="bg-cream-100 py-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl">Why Salt Lake Homeowners Choose Us</h2>
+        <p class="mt-3 text-base leading-relaxed text-stone-soft">
+          Premium materials are only half the job. The other half is the crew,
+          the prep, and the follow-through.
+        </p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {whyChooseUs.map((item) => (
+          <div class="rounded-2xl border border-cream-200 bg-cream-50 p-6">
+            <h3 class="text-lg">{item.title}</h3>
+            <p class="mt-2.5 text-sm leading-relaxed text-stone-soft">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <h2 class="text-3xl">Our Four-Step Process</h2>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {steps.map((s) => (
+        <div class="relative rounded-2xl border border-cream-200 bg-cream-50 p-6">
+          <span class="font-display text-3xl font-bold text-sand-400">{s.n}</span>
+          <h3 class="mt-3 text-lg">{s.t}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-stone-soft">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="bg-sage-500/[0.06] py-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 class="text-3xl">What Our Clients Say</h2>
+      <div class="mt-10 grid gap-6 lg:grid-cols-3">
+        {testimonials.map((t) => (
+          <figure class="rounded-2xl border border-cream-200 bg-cream-50 p-6 shadow-soft">
+            <div class="flex gap-1 text-sand-500" aria-label="5 out of 5 stars">
+              {[0, 1, 2, 3, 4].map(() => (
+                <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true"><path d="m10 1.5 2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 15.9 4.7 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5Z"/></svg>
+              ))}
+            </div>
+            <blockquote class="mt-4 text-sm leading-relaxed text-stone-soft">&ldquo;{t.quote}&rdquo;</blockquote>
+            <figcaption class="mt-4 text-sm font-semibold text-stone-ink">
+              {t.name} <span class="font-normal text-stone-soft">· {t.location}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="rounded-3xl border border-cream-200 bg-cream-100 p-8 sm:p-10">
+      <h2 class="text-3xl">Proudly Serving the Salt Lake Valley</h2>
+      <p class="mt-3 max-w-2xl text-base leading-relaxed text-stone-soft">
+        We install premium garage and concrete coatings throughout greater Salt
+        Lake City. If you don&apos;t see your neighborhood listed, give us a
+        call — we likely cover it.
+      </p>
+      <ul class="mt-6 flex flex-wrap gap-3">
+        {site.serviceAreasExtended.map((area) => (
+          <li class="rounded-full border border-sand-300 bg-cream-50 px-4 py-2 text-sm font-medium text-stone-ink">{area}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="bg-stone-ink">
+    <div class="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-14 sm:px-6 md:flex-row md:items-center md:justify-between">
+      <div>
+        <h2 class="text-3xl text-cream-50">Ready for a floor you&apos;ll love parking on?</h2>
+        <p class="mt-2 text-cream-200/80">Free estimates across Salt Lake City and the surrounding valley.</p>
+      </div>
+      <a href={site.phoneHref} class="inline-flex shrink-0 items-center gap-2 rounded-full bg-sage-400 px-7 py-4 text-base font-semibold text-stone-ink transition-colors hover:bg-sage-300">
+        Call {site.phoneDisplay}
+      </a>
+    </div>
+  </section>
+</Layout>
