@@ -64,7 +64,7 @@ export default function LeadForm({ phoneDisplay, phoneHref, compact = false }) {
         </div>
         <h3 className="text-lg font-semibold text-stone-ink">Request received</h3>
         <p className="mt-1.5 text-sm text-stone-soft">
-          Thanks! We&apos;ll call you back shortly to schedule your free estimate.
+          Thanks! We&apos;ll call you back shortly to schedule your quote.
           Need a faster answer?
         </p>
         <a
@@ -148,7 +148,7 @@ export default function LeadForm({ phoneDisplay, phoneHref, compact = false }) {
         disabled={status === "submitting"}
         className="w-full rounded-full bg-sage-500 px-6 py-3 text-sm font-semibold text-cream-50 shadow-soft transition-colors hover:bg-sage-600 disabled:opacity-70"
       >
-        {status === "submitting" ? "Sending…" : "Get My Free Quote"}
+        {status === "submitting" ? "Sending…" : "Get My Quote"}
       </button>
       <p className="text-center text-xs text-stone-soft">
         Prefer to talk now?{" "}
