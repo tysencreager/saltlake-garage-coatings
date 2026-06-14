@@ -39,8 +39,22 @@ const steps = [
 
 <Layout title={title} description={description} path="/">
   <!-- HERO -->
-  <section class="relative overflow-hidden border-b border-cream-200">
-    <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:py-20">
+  <section class="relative isolate overflow-hidden border-b border-cream-200">
+    <!-- Full-bleed hero photo (LCP) with a soft light scrim so the dark text
+         and the lead form stay readable over the image. -->
+    <Image
+      src={heroImage}
+      alt="Finished flake-epoxy garage floor in soft natural light, Salt Lake City"
+      widths={[640, 960, 1280, 1600, 1920]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      format="webp"
+      class="absolute inset-0 -z-20 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 -z-10 bg-cream-50/65"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-cream-50/30 via-transparent to-cream-50"></div>
+    <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-28">
       <div class="animate-fade-up">
         <p class="inline-flex items-center gap-2 rounded-full bg-sage-300/30 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-sage-600">
           Salt Lake City · Taylorsville · Sandy · Draper
@@ -77,7 +91,7 @@ const steps = [
       </div>
 
       <!-- Above-the-fold lead capture -->
-      <div id="quote" class="animate-fade-up rounded-3xl border border-cream-200 bg-cream-100/60 p-6 shadow-soft sm:p-8" style="animation-delay:.12s">
+      <div id="quote" class="animate-fade-up rounded-3xl border border-cream-200/80 bg-cream-50/90 p-6 shadow-soft backdrop-blur-sm sm:p-8" style="animation-delay:.12s">
         <h2 class="text-2xl">Get Your Free Floor Quote</h2>
         <p class="mt-1.5 text-sm text-stone-soft">
           Tell us about your space and we&apos;ll call you back the same day.
@@ -86,22 +100,6 @@ const steps = [
           <LeadForm client:load phoneDisplay={site.phoneDisplay} phoneHref={site.phoneHref} compact={true} />
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- HERO IMAGE BAND -->
-  <section class="bg-cream-100">
-    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <Image
-        src={heroImage}
-        alt="Finished flake-epoxy garage floor in soft natural light, Salt Lake City"
-        widths={[640, 960, 1280, 1600]}
-        sizes="(max-width: 1024px) 100vw, 1100px"
-        loading="eager"
-        fetchpriority="high"
-        format="webp"
-        class="w-full rounded-3xl object-cover shadow-soft"
-      />
     </div>
   </section>
 
