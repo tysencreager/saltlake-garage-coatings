@@ -40,9 +40,8 @@ public/
 ## Configuration
 
 All business details (phone number, email, service areas) live in
-`src/data/site.ts`. Update the placeholder phone number `(801) 555-0142` there
-once a tracked rental number is assigned — it propagates to every CTA, the
-footer, and the structured data automatically.
+`src/data/site.ts`. Update the phone number there and it propagates to every
+CTA, the footer, and the structured data automatically.
 
 The hero `og:image`, social card, and section graphics in `public/images/` are
 lightweight SVG placeholders. Each file's `<!-- IMAGE PROMPT -->` comment

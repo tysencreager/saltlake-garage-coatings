@@ -17,8 +17,11 @@ const SERVICES = [
   "Not sure yet",
 ];
 
+// Formspree endpoint that receives lead submissions.
+const FORM_ENDPOINT = "https://formspree.io/f/mbdebzpv";
+
 export default function LeadForm({ phoneDisplay, phoneHref, compact = false }) {
-  const [status, setStatus] = useState("idle"); // idle | submitting | success
+  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
   const [errors, setErrors] = useState({});
 
   function validate(data) {
@@ -38,11 +41,21 @@ export default function LeadForm({ phoneDisplay, phoneHref, compact = false }) {
     if (Object.keys(nextErrors).length > 0) return;
 
     setStatus("submitting");
-    // No backend wired yet, so resolve locally and the confirmation shows.
-    // Replace this block with a fetch() to your form endpoint at launch.
-    await new Promise((r) => setTimeout(r, 600));
-    setStatus("success");
-    form.reset();
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (status === "success") {
@@ -141,6 +154,17 @@ export default function LeadForm({ phoneDisplay, phoneHref, compact = false }) {
             className={fieldClass}
           />
         </div>
+      )}
+
+      {status === "error" && (
+        <p role="alert" className="rounded-lg bg-sand-300/40 px-3.5 py-2.5 text-sm text-stone-ink">
+          Something went wrong sending your request. Please try again, or call us
+          at{" "}
+          <a href={phoneHref} className="font-semibold text-sage-600 hover:underline">
+            {phoneDisplay}
+          </a>
+          .
+        </p>
       )}
 
       <button
