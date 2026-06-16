@@ -10,8 +10,6 @@ export const site = {
   // Tracked business line.
   phoneDisplay: "(801) 515-4573",
   phoneHref: "tel:+18015154573",
-  emailDisplay: "hello@saltlakegaragecoatings.com",
-  emailHref: "mailto:hello@saltlakegaragecoatings.com",
 
   hours: "Mon–Sat, 7:00 AM – 6:00 PM",
   city: "Salt Lake City",
