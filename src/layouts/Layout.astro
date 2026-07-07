@@ -13,8 +13,13 @@ interface Props {
   image?: string;
 }
 
-const { title, description, path = "/", image = "/social-card.svg" } = Astro.props;
-const canonical = new URL(path, site.url).href;
+// PNG, not SVG: Facebook, LinkedIn, and iMessage don't render SVG og:images.
+// Regenerate with `node gensocial.mjs` whenever social-card.svg changes.
+const { title, description, path = "/", image = "/social-card.png" } = Astro.props;
+// Trailing slash: Cloudflare Pages serves directory indexes at /page/ and the
+// sitemap lists that form, so the canonical must match to avoid GSC
+// "page with redirect" duplicates.
+const canonical = new URL(path.endsWith("/") ? path : `${path}/`, site.url).href;
 const ogImage = new URL(image, site.url).href;
 
 // LocalBusiness structured data, the backbone of local SEO. Rendered on every
@@ -76,6 +81,9 @@ const localBusinessSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />

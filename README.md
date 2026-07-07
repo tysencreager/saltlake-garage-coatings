@@ -66,3 +66,14 @@ Formspree, or your CRM endpoint before going live.
 
 Update the `site` URL in `astro.config.mjs` to the production domain so the
 canonical tags and sitemap reflect the live address.
+
+### Force HTTP → HTTPS
+
+Cloudflare Pages' `_redirects` file only matches paths, not the URL scheme, so
+the http→https 301 cannot live in this repo. Enable it in the Cloudflare
+dashboard for the `saltlakegaragecoatings.com` zone:
+
+1. Select the domain → **SSL/TLS → Edge Certificates**.
+2. Turn on **Always Use HTTPS** (301s every `http://` request to `https://`).
+3. Recommended: set **SSL/TLS → Overview** encryption mode to **Full (strict)**
+   and enable **HSTS** under Edge Certificates once the redirect is confirmed.
