@@ -1,22 +1,16 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { site } from "../data/site";
-
-const title = "Page Not Found | Salt Lake Garage Coatings";
-const description = "The page you're looking for couldn't be found.";
+// All former pages return 404: this site has been taken offline.
 ---
 
-<Layout title={title} description={description} path="/404">
-  <section class="mx-auto flex max-w-2xl flex-col items-center px-4 py-28 text-center sm:px-6">
-    <p class="font-display text-6xl font-bold text-sand-400">404</p>
-    <h1 class="mt-4 text-3xl">We couldn&apos;t find that page</h1>
-    <p class="mt-4 text-base leading-relaxed text-stone-soft">
-      The page may have moved. Head back home, or call us directly for a
-      garage floor quote in Salt Lake City.
-    </p>
-    <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href="/" class="rounded-full bg-sage-500 px-6 py-3 text-sm font-semibold text-cream-50 transition-colors hover:bg-sage-600">Back to Home</a>
-      <a href={site.phoneHref} class="rounded-full border border-sand-400 px-6 py-3 text-sm font-semibold text-stone-ink transition-colors hover:bg-cream-100">Call {site.phoneDisplay}</a>
-    </div>
-  </section>
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Page not found</title>
+  </head>
+  <body style="font-family: system-ui, sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; color: #444;">
+    <p>This page is no longer available.</p>
+  </body>
+</html>

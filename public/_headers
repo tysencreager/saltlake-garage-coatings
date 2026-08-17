@@ -1,14 +1,6 @@
-# Cloudflare Pages headers — long-cache fingerprinted assets, sensible
-# security defaults. HTML stays revalidated so content updates ship instantly.
+# Site is unpublished: tell crawlers to drop every URL and never cache.
 
 /*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
   X-Content-Type-Options: nosniff
-  X-Frame-Options: SAMEORIGIN
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), microphone=(), camera=()
-
-/_astro/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/images/*
-  Cache-Control: public, max-age=604800

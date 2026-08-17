@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://saltlakegaragecoatings.com/sitemap.xml
-Sitemap: https://saltlakegaragecoatings.com/sitemap-index.xml
+Disallow: /
